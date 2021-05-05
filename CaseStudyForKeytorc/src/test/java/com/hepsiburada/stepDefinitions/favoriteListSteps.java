@@ -2,18 +2,17 @@ package com.hepsiburada.stepDefinitions;
 
 import com.hepsiburada.pages.FavoritePage;
 import com.hepsiburada.pages.*;
-import com.hepsiburada.utilities.ConfigurationReader;
+
 import com.hepsiburada.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-import java.util.List;
+
 
 public class favoriteListSteps {
+
     LoginPage loginPage=new LoginPage();
     SearchPage searchPage=new SearchPage();
     FavoritePage favoritePage=new FavoritePage();
@@ -34,14 +33,10 @@ public class favoriteListSteps {
       searchPage.verifySamsungListing(item);
     }
     @When("select second page")
-    public void select_second_page() {
-        searchPage.selectPage();
-    }
+    public void select_second_page() { searchPage.selectPage(); }
 
     @Then("second page should be shown")
-    public void second_page_should_be_shown() {
-        Assert.assertTrue(Driver.get().getCurrentUrl().contains("sayfa=2"));
-         }
+    public void second_page_should_be_shown() { Assert.assertTrue(Driver.get().getCurrentUrl().contains("sayfa=2")); }
 
     @When("add third item to favorites")
     public void add_third_item_to_favorites() { favoritePage.addItemToFavorite(); }

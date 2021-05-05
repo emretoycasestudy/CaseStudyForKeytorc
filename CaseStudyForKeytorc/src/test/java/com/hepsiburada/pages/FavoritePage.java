@@ -3,7 +3,6 @@ package com.hepsiburada.pages;
 import com.hepsiburada.utilities.BrowserUtils;
 import com.hepsiburada.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,20 +21,20 @@ public class FavoritePage extends BasePage{
     @FindBy(xpath = "//button[@id='StickActionHeader-RemoveSelected']")
     public WebElement deleteFav;
 
-    @FindBy(id="DeleteConfirmationModal-Subtitle")
+    @FindBy(xpath="//button[@id='DeleteConfirmationModal-ActionButton']")
     public WebElement deletConfirm;
 
-    @FindBy(xpath = "//strong[@id='css_cs_cursor']")
+    @FindBy(xpath = "//body[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/strong[1]/span[2]")
     public WebElement verifyEmptList;
 
     @FindBy(id="StickActionHeader-SelectAll")
     public WebElement selectAll;
 
-  //  @FindBy(xpath = "//strong[@id='css_cs_cursor']")
-    // public WebElement productCount;
+   @FindBy(xpath = "//body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/strong[1]")
+    public WebElement productCount;
 
     public void addItemToFavorite(){
-        BrowserUtils.waitFor(10);
+        BrowserUtils.waitFor(5);
         jse.executeScript("arguments[0].scrollIntoView(true);",addFavoriteBtn);
         addFavoriteBtn.click();
         menuLink.click();
@@ -44,21 +43,15 @@ public class FavoritePage extends BasePage{
 
     }
     public void verifyList(){
-        BrowserUtils.waitFor(5);
 
-       //Assert.assertTrue(Boolean.parseBoolean(verifyEmptList.getAttribute("value")));
-        Assert.assertFalse(verifyEmptList.getText().contains("şu an boş"));
-
+       Assert.assertTrue(productCount.getText().contains("ürün"));
 
     }
     public void removeFromList(){
-        BrowserUtils.waitFor(2);
-        selectFav.click();
-        BrowserUtils.waitFor(2);
+
+        selectAll.click();
         deleteFav.click();
-        BrowserUtils.waitFor(2);
         deletConfirm.click();
-        BrowserUtils.waitFor(2);
 
     }
     public void verifyEmptyList(){

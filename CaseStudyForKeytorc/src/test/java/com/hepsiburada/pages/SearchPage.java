@@ -7,9 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import sun.font.Script;
 
-import java.util.List;
 
 
 public class SearchPage extends BasePage {
@@ -33,7 +31,7 @@ public class SearchPage extends BasePage {
     }
 
     public void verifySamsungListing(String item){
-        BrowserUtils.waitFor(10);
+        BrowserUtils.waitFor(5);
         jse.executeScript("arguments[0].scrollIntoView(true);",firstItem);
         WebElement actualList=Driver.get().findElement(By.xpath("(//p[@class='hb-pl-cn']/span)[1]"));
         Assert.assertTrue(actualList.getText().toLowerCase().contains(item));

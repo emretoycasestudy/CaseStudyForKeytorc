@@ -1,8 +1,6 @@
 package com.hepsiburada.pages;
 
-import com.hepsiburada.utilities.BrowserUtils;
 import com.hepsiburada.utilities.Driver;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;

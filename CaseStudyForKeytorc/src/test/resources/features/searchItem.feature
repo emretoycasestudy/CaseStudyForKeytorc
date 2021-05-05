@@ -1,6 +1,6 @@
 
 Feature: search, add to favorite list and remove from favorite list
-
+  @hepsiburada
   Scenario: login search and favorite list function
     Given the user is on the main page
     When log in with valid credentials
